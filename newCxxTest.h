@@ -38,13 +38,13 @@ public:
         Review currentReview1;
         currentReview1.SetRatingAndComment(5, "Great place!");
         Review currentReview2;
-        currentReview2.SetRatingAndComment(5, "Loved the food");
+        currentReview2.SetRatingAndComment(5, "Loved the food.");
         Review currentReview3;
         currentReview3.SetRatingAndComment(2, "Pretty bad service.");
         Review currentReview4;
         currentReview4.SetRatingAndComment(4, "New owners are nice.");
         Review currentReview5;
-        currentReview5.SetRatingAndComment(5, "Yuk!!!");
+        currentReview5.SetRatingAndComment(2, "Yuk!!!");
         reviewList.push_back(currentReview1);
         reviewList.push_back(currentReview2);
         reviewList.push_back(currentReview3);
@@ -59,6 +59,41 @@ public:
         }
         TS_ASSERT_EQUALS(lowestReview.GetRating(),2);
         TS_ASSERT_EQUALS(lowestReview.GetComment(),"Pretty bad service.");
+
+    }
+
+    void testMyFunction2() {
+        //Use TS_ASSERT_EQUALS(Result, ExpResult) to test your functions.
+        vector<Review> reviewList;
+        Review currentReview;
+        Review highestReview;
+        int currentRating;
+        string currentComment;
+
+        Review currentReview1;
+        currentReview1.SetRatingAndComment(5, "Great place!");
+        Review currentReview2;
+        currentReview2.SetRatingAndComment(5, "Loved the food.");
+        Review currentReview3;
+        currentReview3.SetRatingAndComment(2, "Pretty bad service.");
+        Review currentReview4;
+        currentReview4.SetRatingAndComment(4, "New owners are nice.");
+        Review currentReview5;
+        currentReview5.SetRatingAndComment(2, "Yuk!!!");
+        reviewList.push_back(currentReview1);
+        reviewList.push_back(currentReview2);
+        reviewList.push_back(currentReview3);
+        reviewList.push_back(currentReview4);
+        reviewList.push_back(currentReview5);
+        // Find and output lowest review
+        highestReview = reviewList.at(0);
+        for (int i = 1; i < reviewList.size(); ++i) {
+            if (reviewList.at(i) >= highestReview ) {
+                highestReview = reviewList.at(i);
+            }
+        }
+        TS_ASSERT_EQUALS(highestReview.GetRating(),5);
+        TS_ASSERT_EQUALS(highestReview.GetComment(),"Loved the food.");
 
     }
 };
