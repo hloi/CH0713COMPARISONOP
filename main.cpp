@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Review.h"
+
 using namespace std;
 
 int main() {
