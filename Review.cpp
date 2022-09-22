@@ -12,3 +12,11 @@ bool Review::operator==(const Review &rhs) {
 bool Review::operator<(const Review &rhs) {
     return GetRating() < rhs.GetRating();
 }
+
+bool Review::operator!=(const Review &rhs) {
+    return !(*this == rhs);
+}
+
+bool Review::operator>=(const Review &rhs) {
+    return !(*this < rhs);
+}

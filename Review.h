@@ -21,21 +21,12 @@ public:
     string GetComment() const { return comment; }
     bool operator==(const Review& rhs);
     bool operator<(const Review& rhs);
+    bool operator!=(const Review& rhs);
+    bool operator>=(const Review& rhs);
 private:
     int rating = -1;
     string comment = "NoComment";
 };
-
-// Equality (==) operator for two Review objects
-bool operator==(const Review& lhs, const Review& rhs) {
-    return (lhs.GetRating() == rhs.GetRating()) &&
-           (lhs.GetComment() == rhs.GetComment());
-}
-
-// Less-than (<) operator for two Review objects
-bool operator<(const Review& lhs, const Review& rhs) {
-    return lhs.GetRating() < rhs.GetRating();
-}
 
 
 #endif //CH0713COMPARISONOP_REVIEW_H
